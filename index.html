@@ -281,6 +281,63 @@
         font-weight: 600;
       }
 
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: 22px;
+        margin-top: 30px;
+      }
+
+      .feature-card {
+        background: linear-gradient(180deg, #ffffff 0%, #fff9ef 100%);
+        border: 1px solid rgba(214,31,38,0.08);
+        border-radius: 24px;
+        padding: 26px 20px;
+        box-shadow: 0 12px 26px rgba(17, 17, 17, 0.06);
+      }
+
+      .feature-card .icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(214,31,38,0.08);
+        color: var(--red);
+        font-size: 1.6rem;
+        font-weight: 900;
+        margin-bottom: 14px;
+      }
+
+      .feature-card h3 {
+        margin: 0 0 8px;
+        font-size: 1.35rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .promo-strip {
+        margin-top: 30px;
+        background: linear-gradient(120deg, #1a1a1a 0%, #2d2d2d 100%);
+        color: #fff;
+        border-radius: 28px;
+        padding: 24px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .promo-strip strong {
+        color: var(--yellow);
+        font-size: 1.5rem;
+      }
+
       .products-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(220px, 1fr));
@@ -817,6 +874,32 @@
               <strong>12 min</strong>
               <span>Tiempo promedio de entrega</span>
             </div>
+          </div>
+
+          <div class="features">
+            <div class="feature-card">
+              <div class="icon">✓</div>
+              <h3>Ingredientes frescos</h3>
+              <p>Preparados con ingredientes de calidad para un sabor más intenso en cada bocado.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">⚡</div>
+              <h3>Entrega rápida</h3>
+              <p>Tu pedido llega en minutos para que disfrutes sin esperas ni complicaciones.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">★</div>
+              <h3>Calidad premium</h3>
+              <p>Experiencia de restaurante pensada para familias, amigos y cualquier antojo.</p>
+            </div>
+          </div>
+
+          <div class="promo-strip">
+            <div>
+              <span class="eyebrow" style="background: rgba(255, 199, 44, 0.12); color: #ffe88d; border-color: rgba(255, 199, 44, 0.3);">Oferta especial</span>
+              <p style="margin: 10px 0 0; color: rgba(255,255,255,0.8);">Combo para dos con papas, bebida y burger premium</p>
+            </div>
+            <strong>₡12.500</strong>
           </div>
         </div>
       </section>

@@ -627,6 +627,28 @@
         margin-bottom: 12px;
       }
 
+      .payment-options {
+        display: grid;
+        gap: 10px;
+        margin: 12px 0 14px;
+      }
+
+      .payment-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 12px;
+        background: #fafafa;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .payment-option input {
+        accent-color: var(--red);
+      }
+
       .empty-cart {
         color: var(--muted);
         text-align: center;
@@ -1007,6 +1029,22 @@
           <span>Total</span>
           <span id="cartTotal">$0.00</span>
         </div>
+
+        <div class="payment-options" aria-label="Método de pago">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Efectivo" checked />
+            <span>Efectivo</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Tarjeta" />
+            <span>Tarjeta</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="SINPE Móvil" />
+            <span>SINPE Móvil</span>
+          </label>
+        </div>
+
         <button id="confirmOrderBtn" class="pill primary" type="button" style="width: 100%;">Confirmar pedido</button>
       </div>
     </aside>
@@ -1186,6 +1224,11 @@
         return true;
       }
 
+      function getSelectedPaymentMethod() {
+        const selected = document.querySelector('input[name="paymentMethod"]:checked');
+        return selected ? selected.value : 'Efectivo';
+      }
+
       function confirmOrder() {
         if (!ensureLoggedIn()) return;
 
@@ -1197,7 +1240,8 @@
 
         const user = localStorage.getItem(userKey) || 'Cliente';
         const total = cart.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
-        alert(`¡Pedido confirmado, ${user}!\n\nTotal: ₡${total.toFixed(0)}\nProductos: ${cart.length}`);
+        const paymentMethod = getSelectedPaymentMethod();
+        alert(`¡Pedido confirmado, ${user}!\n\nTotal: ₡${total.toFixed(0)}\nMétodo de pago: ${paymentMethod}\nProductos: ${cart.length}`);
         localStorage.removeItem(cartKey);
         renderCart();
       }

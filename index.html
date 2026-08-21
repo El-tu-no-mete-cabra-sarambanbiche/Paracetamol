@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Golden Bite</title>
+    <title>ParacetaBurgers</title>
     <style>
       :root {
         --red: #d61f26;
@@ -692,7 +692,7 @@
       <div class="container nav">
         <div class="brand">
           <div class="logo" aria-label="logo"></div>
-          <span>Golden Bite</span>
+          <span>ParacetaBurgers</span>
         </div>
 
         <nav class="nav-links" aria-label="navegación principal">
@@ -732,7 +732,7 @@
               <div>
                 <h3>Classic Burger</h3>
                 <p>Carne jugosa, queso, tomate y lechuga.</p>
-                <div class="price">$12.99</div>
+                <div class="price">₡6.700</div>
               </div>
             </div>
             <div class="mini-product" style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 18px; margin-top: 8px;">
@@ -740,7 +740,7 @@
               <div>
                 <h3>Combo Crunch</h3>
                 <p>Papas, bebida y burger premium.</p>
-                <div class="price">$18.50</div>
+                <div class="price">₡9.500</div>
               </div>
             </div>
           </div>
@@ -761,7 +761,7 @@
                 <h3>Big Burger</h3>
                 <p>Doble carne, queso cheddar, cebolla caramelizada y salsa especial.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$14.90</span>
+                  <span class="price-tag">₡7.600</span>
                   <button class="pill primary add-to-cart" type="button" data-id="big-burger" data-name="Big Burger" data-price="14.90" data-image="McDonalds-Offers-10.99-40-Piece-Chicken-McNuggets-Deal-At-Select-Locations-In-Honor-Of-The-Items-40th-Anniversary.webp">Agregar</button>
                 </div>
               </div>
@@ -773,7 +773,7 @@
                 <h3>Fries Deluxe</h3>
                 <p>Papas doradas y crujientes, perfectas para acompañar cada plato.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$5.90</span>
+                  <span class="price-tag">₡3.000</span>
                   <button class="pill primary add-to-cart" type="button" data-id="fries-deluxe" data-name="Fries Deluxe" data-price="5.90" data-image="OIP.webp">Agregar</button>
                 </div>
               </div>
@@ -785,7 +785,7 @@
                 <h3>Nuggets Crispy</h3>
                 <p>10 piezas de pollo crujiente con salsa BBQ o ranch.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$8.50</span>
+                  <span class="price-tag">₡4.400</span>
                   <button class="pill primary add-to-cart" type="button" data-id="nuggets-crispy" data-name="Nuggets Crispy" data-price="8.50" data-image="OIP (2).webp">Agregar</button>
                 </div>
               </div>
@@ -797,7 +797,7 @@
                 <h3>Shake Oreo</h3>
                 <p>Batido cremoso y frío con presencia de galleta y cacao.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$6.20</span>
+                  <span class="price-tag">₡3.200</span>
                   <button class="pill primary add-to-cart" type="button" data-id="shake-oreo" data-name="Shake Oreo" data-price="6.20" data-image="OIP (1).webp">Agregar</button>
                 </div>
               </div>
@@ -843,7 +843,7 @@
                 <h4>Double Smash</h4>
                 <p>Carne doble, queso, cebollas y salsa especial con toque ahumado.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$16.90</span>
+                  <span class="price-tag">₡8.700</span>
                   <button class="pill primary add-to-cart" type="button" data-id="double-smash" data-name="Double Smash" data-price="16.90" data-image="OIP.webp">Elegir</button>
                 </div>
               </div>
@@ -855,7 +855,7 @@
                 <h4>Chicken Crunch</h4>
                 <p>Pollo apanado con salsa picante, lechuga fresca y pan brioche.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$12.40</span>
+                  <span class="price-tag">₡6.400</span>
                   <button class="pill primary add-to-cart" type="button" data-id="chicken-crunch" data-name="Chicken Crunch" data-price="12.40" data-image="OIP (1).webp">Elegir</button>
                 </div>
               </div>
@@ -867,7 +867,7 @@
                 <h4>Combo Family</h4>
                 <p>4 burgers, 2 papas medianas y 4 bebidas para compartir.</p>
                 <div class="product-meta">
-                  <span class="price-tag">$32.80</span>
+                  <span class="price-tag">₡16.900</span>
                   <button class="pill primary add-to-cart" type="button" data-id="combo-family" data-name="Combo Family" data-price="32.80" data-image="McDonalds-Offers-10.99-40-Piece-Chicken-McNuggets-Deal-At-Select-Locations-In-Honor-Of-The-Items-40th-Anniversary.webp">Elegir</button>
                 </div>
               </div>
@@ -948,6 +948,10 @@
             <button class="pill primary" type="submit">Entrar</button>
           </div>
         </form>
+
+        <div style="margin-top: 18px;">
+          <div id="googleLoginBtn"></div>
+        </div>
       </div>
     </div>
 
@@ -955,15 +959,17 @@
       <div class="container footer-row">
         <div class="brand" style="color: #fff;">
           <div class="logo" aria-label="logo"></div>
-          <span>Golden Bite</span>
+          <span>ParacetaBurgers</span>
         </div>
-        <div>© 2026 Golden Bite. Todos los derechos reservados.</div>
+        <div>© 2026 ParacetaBurgers. Todos los derechos reservados.</div>
       </div>
     </footer>
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
       const cartKey = 'golden-bite-cart';
       const userKey = 'golden-bite-user';
+      const GOOGLE_CLIENT_ID = 'TU_CLIENT_ID_DE_GOOGLE';
       const loginModal = document.getElementById('loginModal');
       const loginBtn = document.getElementById('loginBtn');
       const closeLoginModalBtn = document.getElementById('closeLoginModal');
@@ -986,9 +992,36 @@
       function updateLoginButton() {
         const user = localStorage.getItem(userKey);
         if (user) {
-          loginBtn.textContent = 'Hola, ' + user;
+          const displayName = user.includes('@') ? user.split('@')[0] : user;
+          loginBtn.textContent = 'Hola, ' + displayName;
         } else {
           loginBtn.textContent = 'Iniciar sesión';
+        }
+      }
+
+      function handleGoogleResponse(response) {
+        if (!response || !response.credential) return;
+
+        try {
+          const payload = JSON.parse(
+            atob(response.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))
+          );
+
+          const email = payload.email || '';
+          const name = payload.name || payload.given_name || 'Cliente';
+
+          if (!email) {
+            alert('No se pudo obtener el correo de Google.');
+            return;
+          }
+
+          localStorage.setItem(userKey, email);
+          updateLoginButton();
+          closeLoginModal();
+          alert('Sesión iniciada con Google. Correo: ' + email);
+        } catch (error) {
+          console.error('Error al decodificar el token de Google:', error);
+          alert('Hubo un problema al iniciar sesión con Google.');
         }
       }
 
@@ -1028,7 +1061,7 @@
         const totalPrice = cart.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
 
         cartCount.textContent = totalItems;
-        cartTotal.textContent = '$' + totalPrice.toFixed(2);
+        cartTotal.textContent = '₡' + totalPrice.toFixed(0);
 
         if (!cart.length) {
           cartItemsContainer.innerHTML = '<div class="empty-cart">Tu carrito está vacío.</div>';
@@ -1079,11 +1112,32 @@
           return;
         }
 
-        const user = localStorage.getItem(userKey);
+        const user = localStorage.getItem(userKey) || 'Cliente';
         const total = cart.reduce((sum, item) => sum + item.quantity * parseFloat(item.price), 0);
-        alert(`¡Pedido confirmado, ${user}!\n\nTotal: $${total.toFixed(2)}\nProductos: ${cart.length}`);
+        alert(`¡Pedido confirmado, ${user}!\n\nTotal: ₡${total.toFixed(0)}\nProductos: ${cart.length}`);
         localStorage.removeItem(cartKey);
         renderCart();
+      }
+
+      if (typeof google !== 'undefined' && GOOGLE_CLIENT_ID && GOOGLE_CLIENT_ID !== 'TU_CLIENT_ID_DE_GOOGLE') {
+        google.accounts.id.initialize({
+          client_id: GOOGLE_CLIENT_ID,
+          callback: handleGoogleResponse,
+        });
+
+        google.accounts.id.renderButton(document.getElementById('googleLoginBtn'), {
+          theme: 'outline',
+          size: 'large',
+          type: 'standard',
+          text: 'signin_with',
+          shape: 'pill',
+          width: '100%'
+        });
+      } else {
+        const googleLoginContainer = document.getElementById('googleLoginBtn');
+        if (googleLoginContainer) {
+          googleLoginContainer.innerHTML = '<p style="text-align:center; color:#5d5d5d; margin:0; font-weight:700;">Agrega tu Client ID de Google para activar el login.</p>';
+        }
       }
 
       document.querySelectorAll('.add-to-cart').forEach((button) => {

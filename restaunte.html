@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Sabor de la Tierra | Restaurante</title>
+  <meta name="description" content="Restaurante con cocina artesanal, platos tradicionales y ambiente acogedor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fffaf3;
+      --card: #fff;
+      --primary: #a61c1c;
+      --primary-dark: #7a1212;
+      --accent: #e7b25d;
+      --text: #1f1a17;
+      --muted: #6f625d;
+      --line: #f0e2d1;
+      --shadow: 0 20px 45px rgba(38, 24, 16, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: rgba(26, 17, 14, 0.88);
+      color: #fff;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      min-height: 42px;
+    }
+
+    .topbar small {
+      opacity: 0.8;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(26, 17, 14, 0.76);
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 84px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), #f3d17d);
+      color: #2e1d16;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 0.95rem 1.7rem;
+      font-weight: 700;
+      transition: 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(166, 28, 28, 0.22);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-light {
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-light:hover { background: rgba(255,255,255,0.22); }
+
+    .hero {
+      min-height: 760px;
+      background:
+        linear-gradient(rgba(25, 18, 16, 0.52), rgba(25, 18, 16, 0.52)),
+        url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 32px));
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      color: #fff;
+      padding: 64px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f5d9a7;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 14px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.8rem, 7vw, 7rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      max-width: 600px;
+      color: rgba(255,255,255,0.85);
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 26px;
+      padding: 28px;
+      width: min(420px, 100%);
+      justify-self: end;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card-badge {
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(231, 178, 93, 0.18);
+      color: #f7d693;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-card h3 {
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      margin: 0;
+    }
+
+    .hero-card-items {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-card-items li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero-card-items li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 42px;
+    }
+
+    .section-header .eyebrow-dark {
+      justify-content: center;
+      display: inline-flex;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      color: var(--primary);
+      background: rgba(166, 28, 28, 0.05);
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px 22px;
+      box-shadow: 0 12px 30px rgba(71, 48, 33, 0.05);
+    }
+
+    .feature-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(166, 28, 28, 0.1), rgba(231, 178, 93, 0.16));
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 2rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .about {
+      background: linear-gradient(180deg, #fffaf5 0%, #fff 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .about-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .about-visual img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-visual img:first-child {
+      transform: translateY(28px);
+    }
+
+    .about-copy h2 {
+      font-size: clamp(2.8rem, 4vw, 4rem);
+      margin-bottom: 18px;
+    }
+
+    .about-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1.02rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 20px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--primary);
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .menu-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    .menu-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 10px 28px rgba(52, 33, 24, 0.05);
+    }
+
+    .menu-card h3 {
+      font-size: 2.5rem;
+      margin-bottom: 22px;
+    }
+
+    .food-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .food-item:last-child { border-bottom: none; }
+
+    .food-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(27, 20, 16, 0.12);
+    }
+
+    .food-name {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 1.05rem;
+    }
+
+    .food-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .food-price {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.08rem;
+    }
+
+    .specials {
+      background: #1f1714;
+      color: #fff;
+    }
+
+    .specials .section-header p,
+    .specials .section-header h2 {
+      color: #fff;
+    }
+
+    .specials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .special-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      overflow: hidden;
+    }
+
+    .special-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .special-content {
+      padding: 24px 22px 28px;
+    }
+
+    .special-content h3 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .special-content p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+    }
+
+    .special-price {
+      margin-top: 18px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .hours-contact {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .hours-box, .contact-form {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(31, 26, 23, 0.05);
+      padding: 32px;
+    }
+
+    .hours-box h3, .contact-form h3 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+    }
+
+    .hours-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .hours-row strong {
+      color: var(--text);
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      background: #170f0d;
+      color: rgba(255,255,255,0.7);
+      padding: 26px 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .about-grid,
+      .hours-contact,
+      .menu-wrapper,
+      .features,
+      .specials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card { justify-self: start; }
+      .nav { flex-wrap: wrap; padding: 14px 0; }
+      .nav-links { width: 100%; flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner { flex-direction: column; justify-content: center; padding: 10px 0; }
+      .hero { min-height: 620px; }
+      .hero h1 { font-size: 3.2rem; }
+      .hero-card { padding: 20px; }
+      .stats { grid-template-columns: 1fr; }
+      .food-item {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .food-thumb { width: 100%; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <small>Reserva: +56 9 1234 5678</small>
+      <small>Av. Central 245, Santiago</small>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="El Sabor de la Tierra">
+        <span class="brand-mark">E</span>
+        <span>El Sabor de la Tierra</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#especiales">Especiales</a></li>
+          <li><a href="#horarios">Horarios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn-primary" href="#contacto">Reservar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Cocina artesanal · ambiente íntimo</div>
+          <h1>Un sabor que te invita a volver.</h1>
+          <p>
+            Deliciosos platos preparados con ingredientes frescos, pasión y tradición.
+            En El Sabor de la Tierra celebramos cada comida como una experiencia memorable.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary">Ver menú</a>
+            <a href="#nosotros" class="btn btn-light">Nuestra historia</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <h3>Hoy</h3>
+            <span class="hero-card-badge">Especial</span>
+          </div>
+
+          <ul class="hero-card-items">
+            <li><span>Ceviche de pescado</span><strong>$18.900</strong></li>
+            <li><span>Lomo al vino</span><strong>$24.500</strong></li>
+            <li><span>Pastel de choclo</span><strong>$16.400</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-dark">Nuestra excelencia</div>
+          <h2>Descubre la experiencia gastronómica</h2>
+          <p>
+            Cada detalle está pensado para brindarte una experiencia única: desde la cocina hasta el servicio.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature-card">
+            <div class="feature-icon">🍽️</div>
+            <h3>Platos auténticos</h3>
+            <p>Preparados con recetas tradicionales y un toque moderno para sorprenderte en cada bocado.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🌿</div>
+            <h3>Ingredientes frescos</h3>
+            <p>Seleccionamos lo mejor del mercado para ofrecer sabores naturales, intensos y saludables.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Ambiente acogedor</h3>
+            <p>Un espacio cálido y elegante pensado para cenas románticas, reuniones familiares y celebraciones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Interior del restaurante" />
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Plato gourmet" />
+        </div>
+
+        <div class="about-copy">
+          <div class="eyebrow-dark">Sobre nosotros</div>
+          <h2>Una tradición hecha para compartir.</h2>
+          <p>
+            Desde nuestra apertura, hemos buscado crear un lugar donde la buena comida y la compañía se conviertan en recuerdos inolvidables.
+          </p>
+          <p>
+            Nuestra cocina combina sabores locales con técnicas internacionales para ofrecer una propuesta gastronómica equilibrada, creativa y memorable.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>10+</strong>
+              <span>Años de experiencia</span>
+            </div>
+            <div class="stat">
+              <strong>2000+</strong>
+              <span>Comensales felices</span>
+            </div>
+            <div class="stat">
+              <strong>25</strong>
+              <span>Platos exclusivos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-dark">Menú destacado</div>
+          <h2>Platos que enamoran</h2>
+        </div>
+
+        <div class="menu-wrapper">
+          <div class="menu-card">
+            <h3>Entradas</h3>
+
+            <div class="food-item">
+              <img class="food-thumb" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80" alt="Ceviche" />
+              <div>
+                <div class="food-name">Ceviche clásico</div>
+                <div class="food-desc">Pescado fresco, limón, cilantro y ají.</div>
+              </div>
+              <div class="food-price">$18.900</div>
+            </div>
+
+            <div class="food-item">
+              <img class="food-thumb" src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=500&q=80" alt="Tequeños" />
+              <div>
+                <div class="food-name">Tequeños</div>
+                <div class="food-desc">Queso fundido con salsa de ají casera.</div>
+              </div>
+              <div class="food-price">$12.500</div>
+            </div>
+
+            <div class="food-item">
+              <img class="food-thumb" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="Ensalada" />
+              <div>
+                <div class="food-name">Ensalada gourmet</div>
+                <div class="food-desc">Mix de hojas, frutos secos y vinagreta.</div>
+              </div>
+              <div class="food-price">$14.200</div>
+            </div>
+          </div>
+
+          <div class="menu-card">
+            <h3>Principales</h3>
+
+            <div class="food-item">
+              <img class="food-thumb" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="Lomo al vino" />
+              <div>
+                <div class="food-name">Lomo al vino</div>
+                <div class="food-desc">Carne suave, salsa de vino y papas doradas.</div>
+              </div>
+              <div class="food-price">$24.500</div>
+            </div>
+
+            <div class="food-item">
+              <img class="food-thumb" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" alt="Salmon" />
+              <div>
+                <div class="food-name">Salmón a la parrilla</div>
+                <div class="food-desc">Con vegetales asados y mantequilla de hierbas.</div>
+              </div>
+              <div class="food-price">$26.800</div>
+            </div>
+
+            <div class="food-item">
+              <img class="food-thumb" src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=500&q=80" alt="Pasta" />
+              <div>
+                <div class="food-name">Pasta al pesto</div>
+                <div class="food-desc">Pasta fresca, pesto, queso parmesano y tomate.</div>
+              </div>
+              <div class="food-price">$19.900</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section specials" id="especiales">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-dark">Especiales</div>
+          <h2>Lo más solicitado esta semana</h2>
+        </div>
+
+        <div class="specials-grid">
+          <article class="special-card">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=80" alt="Parrillada" />
+            <div class="special-content">
+              <h3>Parrillada para dos</h3>
+              <p>Carne, pollo, chorizo, papas, ensalada y salsa casera.</p>
+              <div class="special-price">$36.900</div>
+            </div>
+          </article>
+
+          <article class="special-card">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80" alt="Pasta gourmet" />
+            <div class="special-content">
+              <h3>Pasta gourmet</h3>
+              <p>Salsa cremosa, hongos, parmesano y toque de trufa.</p>
+              <div class="special-price">$21.500</div>
+            </div>
+          </article>
+
+          <article class="special-card">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80" alt="Salmón" />
+            <div class="special-content">
+              <h3>Salmón glaseado</h3>
+              <p>Con limón, mantequilla y vegetales de temporada.</p>
+              <div class="special-price">$28.800</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="horarios">
+      <div class="container hours-contact">
+        <div class="hours-box">
+          <div class="eyebrow-dark">Horarios</div>
+          <h3>Ven a disfrutar</h3>
+
+          <div class="hours-list">
+            <div class="hours-row"><strong>Lunes a viernes</strong><span>12:00 - 22:30</span></div>
+            <div class="hours-row"><strong>Sábado</strong><span>12:00 - 23:00</span></div>
+            <div class="hours-row"><strong>Domingo</strong><span>13:00 - 21:30</span></div>
+            <div class="hours-row"><strong>Especial eventos</strong><span>Reservas por agenda</span></div>
+          </div>
+        </div>
+
+        <div class="contact-form" id="contacto">
+          <div class="eyebrow-dark">Reservas</div>
+          <h3>Haz tu reserva</h3>
+          <form>
+            <input type="text" placeholder="Tu nombre" aria-label="Nombre" />
+            <input type="email" placeholder="Correo electrónico" aria-label="Correo" />
+            <input type="tel" placeholder="Teléfono" aria-label="Teléfono" />
+            <textarea placeholder="Mensaje o detalle de la reserva"></textarea>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 El Sabor de la Tierra · Cocina artesanal · Todos los derechos reservados.
+  </footer>
+</body>
+</html>

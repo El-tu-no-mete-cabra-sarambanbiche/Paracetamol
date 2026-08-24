@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soluciones para Hoteles — Mejora la experiencia de tus huéspedes</title>
+  <meta name="description" content="Servicios y tecnología pensados para hoteles: reservas, upsell, check-in exprés, analytics y más.">
+  <meta property="og:title" content="Soluciones para Hoteles — Mejora la experiencia de tus huéspedes">
+  <meta property="og:description" content="Servicios para hoteles: reservas, upsell, check-in exprés, analytics y más.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Soluciones HotelTech",
+    "description": "Plataforma y servicios para optimizar operaciones y aumentar ingresos por huésped.",
+    "url": "",
+    "telephone": "+34 600 000 000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Ejemplo 1",
+      "addressLocality": "Ciudad",
+      "addressRegion": "Región",
+      "postalCode": "00000",
+      "addressCountry": "ES"
+    }
+  }
+  </script>
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" href="#">HotelTech</a>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">☰</button>
+      <nav id="nav-menu" class="nav-menu" role="navigation">
+        <a href="#features">Servicios</a>
+        <a href="#gallery">Casos</a>
+        <a href="#contact">Contacto</a>
+        <a class="cta" href="#quote">Solicitar demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <h1 id="hero-title">Aumenta la satisfacción y los ingresos por huésped</h1>
+          <p class="lead">Soluciones integradas para reservas, upsell automatizado, check-in exprés y analítica en tiempo real diseñadas para hoteles.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" id="quote" href="#contact">Solicitar demo</a>
+            <a class="btn ghost" href="#gallery">Ver casos</a>
+          </div>
+        </div>
+        <figure aria-hidden="true">
+          <img src="assets/hero-hotel.svg" alt="Recepción de hotel moderna" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section id="features" class="features container" aria-labelledby="features-title">
+      <h2 id="features-title">Qué ofrecemos</h2>
+      <div class="grid">
+        <article>
+          <h3>Reservas Directas</h3>
+          <p>Motor de reservas optimizado que reduce comisiones y mejora conversión móvil.</p>
+        </article>
+        <article>
+          <h3>Upsell Inteligente</h3>
+          <p>Ofertas personalizadas antes y durante la estancia para aumentar ADR.</p>
+        </article>
+        <article>
+          <h3>Check-in Exprés</h3>
+          <p>Self check-in con integración PMS y control de accesos.</p>
+        </article>
+        <article>
+          <h3>Analytics & KPI</h3>
+          <p>Dashboard en tiempo real: ocupación, RevPAR, conversiones y feedback de huéspedes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery container" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Casos y recursos</h2>
+      <div class="cards">
+        <figure>
+          <img src="assets/case1.svg" alt="Suite renovada" loading="lazy">
+          <figcaption>Suite renovada — incremento de ocupación 12%</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case2.svg" alt="Recepción digital" loading="lazy">
+          <figcaption>Recepción digital — reducción de tiempos de check-in</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/case3.svg" alt="Desayuno servido" loading="lazy">
+          <figcaption>F&B upsell — +18% en ingresos</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contacta para una demo</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" required aria-required="true">
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required aria-required="true">
+        </div>
+        <div class="form-row">
+          <label for="hotel">Hotel / Cadena</label>
+          <input id="hotel" name="hotel">
+        </div>
+        <div class="form-row">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn primary" type="submit">Enviar solicitud</button>
+          <button class="btn ghost" type="button" id="call-btn">Llamar</button>
+        </div>
+      </form>
+      <div class="map" aria-hidden="false">
+        <h3>Ubicación de ejemplo</h3>
+        <iframe title="Mapa" src="https://www.google.com/maps?q=Madrid+Spain&output=embed" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong>HotelTech</strong>
+        <p>Tel: +34 600 000 000 · info@hoteltech.example</p>
+      </div>
+      <div class="social">
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js" defer></script>
+  <!-- Analytics placeholder: insertar Google Analytics/Matomo aquí -->
+</body>
+</html>
